@@ -12,7 +12,6 @@ var concat = require('gulp-concat');
 var gulpif = require('gulp-if');
 var haml = require('gulp-haml');
 var jshint = require('gulp-jshint');
-var mocha = require('gulp-mocha');
 var refresh = require('gulp-livereload');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
@@ -33,7 +32,7 @@ console.log(config);
 
 gulp.task('jshint', function () {
   gulp
-    .src(['Gulpfile.js', 'spec/**/*.js', 'src/js/**/*.js'])
+    .src(['Gulpfile.js', 'src/js/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
