@@ -37,13 +37,15 @@ gulp.task('jshint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('js', ['jshint'], function () {
+gulp.task('pre-js', ['jshint'], function () {
   gulp
     .src(config.js)
     .pipe(coffee())
     .pipe(concat('tmp.js'))
     .pipe(gulp.dest('./out/js'));
+});
 
+gulp.task('js', ['pre-js'], function () {
   gulp
     .src(['./node_modules/reveal.js/js/reveal.js', './out/js/tmp.js'])
     .pipe(gulpif(config.env === 'production', uglify()))
@@ -52,13 +54,15 @@ gulp.task('js', ['jshint'], function () {
     .pipe(refresh(server));
 });
 
-gulp.task('css', function () {
+gulp.task('pre-css', function () {
   gulp
     .src(config.css)
     .pipe(sass())
     .pipe(concat('tmp.css'))
     .pipe(gulp.dest('./out/css'));
-  
+});
+
+gulp.task('css', ['pre-css'], function () {
   gulp
     .src(['./node_modules/reveal.js/css/reveal.css', './node_modules/reveal.js/css/theme/' + config.theme + '.css', './out/css/tmp.css'])
     .pipe(concat('all.css'))
