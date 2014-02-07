@@ -7,6 +7,7 @@ var lr = require('tiny-lr');
 
 var browserify = require('gulp-browserify');
 var coffee = require('gulp-coffee');
+var coffeelint = require('gulp-coffeelint');
 var concat = require('gulp-concat');
 var gulpif = require('gulp-if');
 var haml = require('gulp-haml');
@@ -37,7 +38,14 @@ gulp.task('jshint', function () {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('pre-js', ['jshint'], function () {
+gulp.task('coffeelint', function () {
+  gulp
+    .src(config.js)
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter('coffeelint-stylish'));
+});
+
+gulp.task('pre-js', ['jshint', 'coffeelint'], function () {
   gulp
     .src(config.js)
     .pipe(coffee())
