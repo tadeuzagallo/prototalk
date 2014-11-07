@@ -1,19 +1,10 @@
-- var title = 'JavaScript Data Binging'
-- var theme = 'default'
-- var author = {
-    name: 'Tadeu Zagallo',
-    email: 'tadeuzagallo@gmail.com',
-    twitter: 'tadeuzagallo',
-    github: 'tadeuzagallo',
-    site: 'tadeuzagallo.com'
-  }
-
 doctype html
 html
   head
     title #{title}
     link(rel="stylesheet" href="components/reveal.js/css/reveal.min.css")
-    link(rel="stylesheet" href="components/reveal.js/css/theme/#{theme}.css")
+    link(rel="stylesheet" href="components/reveal.js/css/theme/#{revealTheme}.css")
+    link(rel="stylesheet" href="components/reveal.js/lib/css/zenburn.css")
     link(rel="stylesheet" href="css/main.css")
   body
     .reveal
@@ -30,7 +21,21 @@ html
               a(href="http://github.com/#{author.github}") github.com/#{author.github}
             li
               a(href="http://#{author.site}") #{author.site}
-      .slides
+        
+        each column in slides
+          section
+            each slide in column
+              section
+                if slide.title
+                  h1= slide.title
+                if slide.image
+                  img(src=slide.image)
+                if slide.text
+                  p= slide.text
+                if slide.code
+                  pre
+                    code(data-trim class="hljs #{slide.code.language}")= slide.code.content
+
         section
           h1 #{author.name}
           br
@@ -44,5 +49,6 @@ html
             li
               a(href="http://#{author.site}") #{author.site}
           
+    script(src="components/reveal.js/lib/js/head.min.js")
     script(src="components/reveal.js/js/reveal.min.js")
     script(src="js/main.js")

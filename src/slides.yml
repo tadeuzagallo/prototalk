@@ -1,0 +1,19 @@
+-
+  -
+    title: Example Slide
+    text: Example slide text
+  -
+    title: Other slide on the same column
+-
+  -
+    title: slide with image
+    image: https://assets-cdn.github.com/images/modules/logos_page/Octocat.png
+
+-
+  - 
+    title: slide with code
+    code:
+      language: javascript
+      content: |
+        var hello = 'World';
+        alert('Hello, ' + hello);
