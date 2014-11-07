@@ -17,3 +17,9 @@
       content: |
         var hello = 'World';
         alert('Hello, ' + hello);
+-
+  -
+    markdown: |
+      ## Slide with markdown
+
+      This slide contains just [markdown](http://en.wikipedia.org/wiki/Markdown)

@@ -25,16 +25,20 @@ html
         each column in slides
           section
             each slide in column
-              section
-                if slide.title
-                  h1= slide.title
-                if slide.image
-                  img(src=slide.image)
-                if slide.text
-                  p= slide.text
-                if slide.code
-                  pre
-                    code(data-trim class="hljs #{slide.code.language}")= slide.code.content
+              if slide.markdown
+                section(data-markdown)
+                  script(type='text/template' data-trim)= slide.markdown
+              else
+                section
+                  if slide.title
+                    h1= slide.title
+                  if slide.image
+                    img(src=slide.image)
+                  if slide.text
+                    p= slide.text
+                  if slide.code
+                    pre
+                      code(data-trim class="hljs #{slide.code.language}")= slide.code.content
 
         section
           h1 #{author.name}
