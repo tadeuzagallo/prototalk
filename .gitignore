@@ -5,3 +5,5 @@
 .DS_Store
 out/
 node_modules/
+*.html
+src/components

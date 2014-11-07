@@ -1,0 +1,48 @@
+- var title = 'JavaScript Data Binging'
+- var theme = 'default'
+- var author = {
+    name: 'Tadeu Zagallo',
+    email: 'tadeuzagallo@gmail.com',
+    twitter: 'tadeuzagallo',
+    github: 'tadeuzagallo',
+    site: 'tadeuzagallo.com'
+  }
+
+doctype html
+html
+  head
+    title #{title}
+    link(rel="stylesheet" href="components/reveal.js/css/reveal.min.css")
+    link(rel="stylesheet" href="components/reveal.js/css/theme/#{theme}.css")
+    link(rel="stylesheet" href="css/main.css")
+  body
+    .reveal
+      .slides
+        section
+          h1 #{title}
+          br
+          ul.no
+            li 
+              a(href="mailto:#{author.email}") #{author.email}
+            li
+              a(href="http://twitter.com/#{author.twitter}") @#{author.twitter}
+            li
+              a(href="http://github.com/#{author.github}") github.com/#{author.github}
+            li
+              a(href="http://#{author.site}") #{author.site}
+      .slides
+        section
+          h1 #{author.name}
+          br
+          ul.no
+            li 
+              a(href="mailto:#{author.email}") #{author.email}
+            li
+              a(href="http://twitter.com/#{author.twitter}") @#{author.twitter}
+            li
+              a(href="http://github.com/#{author.github}") github.com/#{author.github}
+            li
+              a(href="http://#{author.site}") #{author.site}
+          
+    script(src="components/reveal.js/js/reveal.min.js")
+    script(src="js/main.js")
