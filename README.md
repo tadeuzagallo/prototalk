@@ -1,17 +1,17 @@
-# Talk Model
+# Prototalk
 
-This is just a model that I use to create my talks
+This is just a prototype that I use to create my talks
+
+## How to use it
+
+Just edit the file at `src/config.yml` with your info and add the slides to `src/slides.yml`
 
 ## It uses 
 
 * reveal.js
-* gulp
-* haml
-* sass
-* coffee-script
-* livereload
-
-And loads of other stuff on the build like jshint, coffeelint....
+* fb-flo
+* jade
+* yamljs
 
 --- 
 
